@@ -11,15 +11,22 @@ const { title } = Astro.props;
     <title>{title}</title>
     <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body>
-    <header>
-      <h1>{title}</h1>
+  <body class="bg-blue-50 text-gray-800">
+    <header class="bg-white shadow sticky top-0 z-50">
+      <nav class="flex justify-between items-center max-w-5xl mx-auto px-6 py-4 border-b border-blue-200">
+        <h1 class="text-2xl font-bold text-blue-800">PACE</h1>
+        <ul class="flex space-x-6">
+          <li><a href="/" class="text-blue-700 hover:underline">Accueil</a></li>
+          <li><a href="/bilan" class="text-blue-700 hover:underline">Bilan</a></li>
+          <li><a href="/auteur" class="text-blue-700 hover:underline">Qui je suis</a></li>
+        </ul>
+      </nav>
     </header>
-    <main>
+    <main class="max-w-5xl mx-auto p-6">
       <slot />
     </main>
-    <footer>
-      <p>© 2025 — Rapport PACE</p>
+    <footer class="text-center text-sm text-gray-500 py-4">
+      © 2025 — Rapport PACE
     </footer>
   </body>
 </html>
