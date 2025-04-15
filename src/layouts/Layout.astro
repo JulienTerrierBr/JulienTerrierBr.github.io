@@ -4,6 +4,7 @@ export interface Props {
 }
 const { title } = Astro.props;
 ---
+
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -11,22 +12,51 @@ const { title } = Astro.props;
     <title>{title}</title>
     <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body class="bg-blue-50 text-gray-800">
-    <header class="bg-white shadow sticky top-0 z-50">
-      <div class="max-w-5xl mx-auto px-6 py-4">
-        <h1 class="text-3xl font-bold text-blue-800">PACE</h1>
+
+  <body class="bg-blue-50 text-gray-800 font-serif">
+    <!-- Bandeau en-tête -->
+    <header class="bg-white border-b-4 border-blue-800 shadow-md">
+      <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+        <!-- Logo et titre -->
+        <div class="flex items-center gap-4">
+          <img src="/images/logo-etat.png" alt="Logo institutionnel"
+     class="h-10 w-auto max-w-[120px] object-contain shrink-0"style=“width:30px;height:400px.”/>
+          <div>
+            <p class="text-sm text-blue-700"> </p>
+            <h1 >Etude de l'impact économique de la mobilité étudiante sortante</h1>
+            <p class="text-sm text-blue-700"> </p>
+          </div>
+        </div>
       </div>
+
+      <!-- Barre de navigation -->
       <nav class="flex text-center border-t border-b border-blue-200">
-        <a href="/" class={`flex-1 py-4 font-semibold transition ${Astro.url.pathname === '/' ? 'bg-blue-200 text-blue-900' : 'bg-blue-100 text-blue-800 hover:bg-blue-200'}`}>Accueil</a>
-        <a href="/bilan" class={`flex-1 py-4 font-semibold transition ${Astro.url.pathname === '/bilan' ? 'bg-blue-200 text-blue-900' : 'bg-blue-100 text-blue-800 hover:bg-blue-200'}`}>Bilan</a>
-        <a href="/auteur" class={`flex-1 py-4 font-semibold transition ${Astro.url.pathname === '/auteur' ? 'bg-blue-200 text-blue-900' : 'bg-blue-100 text-blue-800 hover:bg-blue-200'}`}>Qui je suis</a>
+        <div class="p-6 bg-white shadow hover:shadow-xl transition">
+          <div class="flex w-full text-center">
+            <a href="/" class={`flex-1 py-4 font-semibold transition ${Astro.url.pathname === '/' ? 'bg-blue-200 text-blue-900' : 'bg-blue-100 text-blue-800 hover:bg-blue-200'}`}>
+              Accueil     
+            </a>
+            <a href="/bilan" class={`flex-1 py-4 font-semibold transition ${Astro.url.pathname === '/bilan' ? 'bg-blue-200 text-blue-900' : 'bg-blue-100 text-blue-800 hover:bg-blue-200'}`}>
+              Bilan      
+            </a>
+            <a href="/auteur" class={`flex-1 py-4 font-semibold transition ${Astro.url.pathname === '/auteur' ? 'bg-blue-200 text-blue-900' : 'bg-blue-100 text-blue-800 hover:bg-blue-200'}`}>
+              Qui je suis     
+            </a>
+          </div>
+        </div>
+        
+
       </nav>
     </header>
+
+    <!-- Contenu principal -->
     <main class="max-w-5xl mx-auto p-6">
       <slot />
     </main>
-    <footer class="text-center text-sm text-gray-500 py-4">
-      © 2025 — Rapport PACE
+
+    <!-- Pied de page -->
+    <footer class="text-center text-sm text-gray-500 py-4 border-t border-blue-200 mt-12">
+      © 2025 — Rapport de l'etude sur la mobilité etudiante par le comité de recherche sociologique du PACE.
     </footer>
   </body>
 </html>

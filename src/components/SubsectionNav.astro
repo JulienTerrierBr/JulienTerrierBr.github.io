@@ -1,0 +1,22 @@
+---
+interface Props {
+  previous?: { href: string; label: string };
+  next?: { href: string; label: string };
+}
+
+const { previous, next } = Astro.props;
+---
+
+<div class="mt-12 flex justify-between items-center border-t pt-6">
+  {previous ? (
+    <a href={previous.href} class="text-blue-700 hover:underline font-medium">
+      ← {previous.label}
+    </a>
+  ) : <div></div>}
+
+  {next && (
+    <a href={next.href} class="text-blue-700 hover:underline font-medium">
+      {next.label} →
+    </a>
+  )}
+</div>
