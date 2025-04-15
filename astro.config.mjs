@@ -7,4 +7,8 @@ import react from '@astrojs/react';
 export default defineConfig({
   site: 'https://julienterrierbr.github.io',
   integrations: [react()],
+  output: "static",
+  build: {
+    outDir: "./dist",
+  },
 });
