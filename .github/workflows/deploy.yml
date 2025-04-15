@@ -27,14 +27,14 @@ jobs:
         run: npm run build
 
       - name: Preload upload-artifact workaround
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dummy
           path: ./does-not-exist
           if-no-files-found: ignore
 
       - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./dist
 
